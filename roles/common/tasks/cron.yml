@@ -1,0 +1,40 @@
+---
+
+- name: Install cron
+  tags: cron
+  become: true
+  ansible.builtin.dnf:
+    name: cronie
+    state: latest
+
+- name: Start and enable Cron service
+  tags: cron
+  become: true
+  ansible.builtin.systemd_service:
+    name: crond
+    state: started
+    enabled: true
+
+- name: Set cron variables
+  tags: cron
+  # TODO make this key value pair and loop
+  ansible.builtin.cron:
+    name: SHELL
+    env: true
+    job: /bin/bash
+
+- name: Set PATH variable
+  tags: cron
+  ansible.builtin.cron:
+    name: PATH
+    env: true
+    job: /sbin:/bin:/usr/sbin:/usr/bin
+    insertafter: SHELL
+
+- name: Cron test
+  tags: cron
+  ansible.builtin.cron:
+    name: Test entry
+    user: "{{ sys_user }}"
+    minute: "*"
+    job: echo "Hello World from Cron" > $HOME/test.txt

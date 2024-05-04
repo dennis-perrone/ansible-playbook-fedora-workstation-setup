@@ -1,0 +1,18 @@
+---
+# tasks file for applications
+
+- name: Load variables
+  tags: applications
+  ansible.builtin.include_vars:
+    dir: vars
+
+- name: Generate an OpenSSH keypair with the default values (4096 bits, rsa) and encrypted private key
+  community.crypto.openssh_keypair:
+    path: ~/.ssh/id_ssh_rsa
+
+- name: Configure DNF and install appliations
+  tags:
+    - applications
+    - dnf
+  ansible.builtin.import_tasks:
+    file: dnf.yml
