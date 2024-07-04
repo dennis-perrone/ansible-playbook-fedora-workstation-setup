@@ -18,7 +18,7 @@
 - name: Copy crontab backup to host
   ansible.builtin.copy:
     src: ../files/crontab
-    dest: "/var/home/{{ sys_user }}/documents/crontab"
+    dest: "/home/{{ sys_user }}/documents/crontab"
     owner: "{{ sys_user }}"
     group: "{{ sys_user }}"
     mode: '0644'

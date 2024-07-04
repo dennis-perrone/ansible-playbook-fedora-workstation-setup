@@ -8,7 +8,7 @@ dnf_pkgs_remove:
 
 dnf_pkgs_install:
   # - code
-  - codium
+  # - codium
   - '@Virtualization'
   - podman-compose
   - podman
@@ -21,7 +21,7 @@ dnf_pkgs_install:
   - qpdf
   - chromium
   - keepassxc
-  - python3-psutils
+  # - python3-psutils
 
 # flatpak_pkgs_install:
 #   - io.podman_desktop.PodmanDesktop

@@ -11,6 +11,7 @@
     path: ~/.ssh/id_ssh_rsa
 
 - name: Configure DNF and install appliations
+  become: true
   tags:
     - applications
     - dnf

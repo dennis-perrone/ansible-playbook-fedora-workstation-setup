@@ -38,9 +38,12 @@ rpm_fusion_keys:
   - https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-rpmfusion-free-fedora-2020
   - https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-rpmfusion-nonfree-fedora-2020
 
+  #flatpak_remotes:
+  #- repo_name: flathub
+  #  state: present
+  #  flatpak_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+  #  method: system
+  #  enabled: true
+
 flatpak_remotes:
-  - repo_name: flathub
-    state: present
-    flatpak_url: https://dl.flathub.org/repo/flathub.flatpakrepo
-    method: system
-    enabled: true
+  - { name: 'flathub', url: 'https://dl.flathub.org/repo/flathub.flatpakrepo' }
