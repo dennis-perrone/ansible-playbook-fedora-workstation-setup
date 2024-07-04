@@ -31,10 +31,10 @@
     job: /sbin:/bin:/usr/sbin:/usr/bin
     insertafter: SHELL
 
-- name: Cron test
-  tags: cron
-  ansible.builtin.cron:
-    name: Test entry
-    user: "{{ sys_user }}"
-    minute: "*"
-    job: echo "Hello World from Cron" > $HOME/test.txt
+# - name: Cron test
+#   tags: cron
+#   ansible.builtin.cron:
+#     name: Test entry
+#     user: "{{ sys_user }}"
+#     minute: "*"
+#     job: echo "Hello World from Cron" > $HOME/test.txt

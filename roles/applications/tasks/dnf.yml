@@ -18,13 +18,13 @@
   ansible.builtin.reboot:
 
 - name: Install default applications
-  loop: "{{ dnf_applications_install }}"
+  loop: "{{ dnf_pkgs_install }}"
   ansible.builtin.dnf:
     name: "{{ item }}"
     state: latest
 
 - name: Remove unwanted default applications
-  loop: "{{ dnf_applications_remove }}"
+  loop: "{{ dnf_pkgs_remove }}"
   ansible.builtin.dnf:
     name: "{{ item }}"
     state: absent

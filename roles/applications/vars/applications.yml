@@ -1,20 +1,42 @@
 ---
-# vars file for flatpaks
 
-flatpak_remotes:
-  - { name: 'flathub', url: 'https://dl.flathub.org/repo/flathub.flatpakrepo' }
+dnf_pkgs_remove:
+  - cheese
+  - gnome-tour
+  - libreoffice
+  - gnome-boxes
+
+dnf_pkgs_install:
+  # - code
+  - codium
+  - '@Virtualization'
+  - podman-compose
+  - podman
+  - dnf-plugin-tracer
+  - python3-virtualenvwrapper
+  - cronie
+  - tlp
+  - neovim
+  - ripgrep
+  - qpdf
+  - chromium
+  - keepassxc
+  - python3-psutils
+
+# flatpak_pkgs_install:
+#   - io.podman_desktop.PodmanDesktop
+#   - org.signal.Signal
+#   - com.mattjakeman.ExtensionManager
 
 flatpak_pkgs_install:
   - { remote: 'flathub', package: 'com.brave.Browser' }
   - { remote: 'flathub', package: 'org.signal.Signal' }
   # - { remote: 'flathub', package: 'com.slack.Slack' }
   - { remote: 'flathub', package: 'com.github.tchx84.Flatseal' }
-  - { remote: 'flathub', package: 'org.mozilla.firefox' }
+  # - { remote: 'flathub', package: 'org.mozilla.firefox' }
   - { remote: 'flathub', package: 'org.freedesktop.Platform.ffmpeg-full/x86_64/22.08' }
   - { remote: 'flathub', package: 'com.mattjakeman.ExtensionManager' }
   # - { remote: 'flathub', package: 'com.spotify.Client' }
-  - { remote: 'flathub', package: 'io.podman_desktop.PodmanDesktop' }
-  - { remote: 'flathub', package: 'com.getpostman.Postman' }
 
 flatpak_pkgs_uninstall:
   - org.gnome.Calculator

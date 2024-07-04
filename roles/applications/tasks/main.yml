@@ -16,3 +16,10 @@
     - dnf
   ansible.builtin.import_tasks:
     file: dnf.yml
+
+- name: Configure Flatpak and install appliations
+  tags:
+    - applications
+    - flatpak
+  ansible.builtin.import_tasks:
+    file: flatpak.yml
